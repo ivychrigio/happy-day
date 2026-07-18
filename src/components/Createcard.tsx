@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { buildCardUrl } from "./Cardlink";
-import { GRADIENT_PRESETS } from "../data/Gradients";
+import { GRADIENT_PRESETS } from "../data/gradients";
 import { LANGUAGES } from "../data/languages";
 
 export default function CreateCard() {

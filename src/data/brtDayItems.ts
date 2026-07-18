@@ -1,4 +1,4 @@
-import { GRADIENTS } from "./Gradients";
+import { GRADIENTS } from "./gradients";
 
 export const BIRTH_DAY_ITEMS = [
   {
