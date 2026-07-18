@@ -1,4 +1,4 @@
-import type { DividerProps } from "./interfaces/dividerProps";
+import type { DividerProps } from "../interfaces/dividerProps";
 
 export default function Divider({ icon: Icon, compact = false }: DividerProps) {
   return (

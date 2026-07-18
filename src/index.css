@@ -39,7 +39,7 @@ canvas {
 }
 
 .container {
-  height: 100%;
+  height: 100dvh;
   width: 100%;
   background: var(--bg-color);
   background-size: 200% 200%;
@@ -48,8 +48,8 @@ canvas {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  padding-top: 2rem;
+  overflow-y: auto;
 }
 
 @keyframes GRADIENT-ANIMATION {
@@ -65,8 +65,9 @@ canvas {
 }
 
 .container section {
+  flex: 0 0 auto;
   width: 100%;
-  max-width: clamp(320px, 90vmin, 900px);
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,7 +93,7 @@ canvas {
   white-space: nowrap;
   background: var(--bg-color);
   border: 3px solid var(--text-primary);
-  border-radius: 50px;
+  border-radius: 20px;
   padding: 1rem 2.2rem;
   font-size: 1rem;
   font-weight: 900;
@@ -101,9 +102,10 @@ canvas {
 }
 
 .canvas-wrapper {
+  flex: 1 1 auto;
   width: 100%;
-  height: clamp(280px, 55vmin, 700px);
-  max-width: clamp(320px, 90vmin, 900px);
+  max-width: 600px;
+  min-height: 200px;
 }
 
 .name {
@@ -123,13 +125,12 @@ canvas {
   font-weight: 700;
 }
 
-/* FOOTER & DIVIDER */
 .footer {
-  padding: var(--footer-padding);
   width: 100%;
-  box-sizing: border-box;
-  color: var(--text-primary);
   margin-top: auto;
+  padding: 1rem;
+  flex-shrink: 0;
+  color: var(--text-primary);
 }
 
 .footerContainer {
@@ -219,4 +220,154 @@ canvas {
 
 .devCredit a:hover {
   color: var(--accent-color);
+}
+
+.topBar {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  flex: 0 0 auto;
+}
+
+.languages {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.languagesIcon {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--text-primary);
+}
+
+.languagesSelect {
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.topBarLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 2px solid var(--text-primary);
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  transition: all var(--transition-speed) ease;
+}
+
+.topBarLink:hover {
+  background: var(--text-primary);
+  color: var(--bg-color);
+}
+
+.topBarLinkIcon {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.create-card {
+  gap: 1rem;
+}
+
+.field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  border: 2px solid var(--text-muted);
+  border-radius: 10px;
+  padding: 0.6rem 0.8rem;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  text-transform: none;
+  background: white;
+  color: var(--text-primary);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.gradient-picker {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.swatch {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transition-speed) ease;
+}
+
+.swatch.active {
+  border-color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+.link-result {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+}
+
+.link-result input {
+  width: 100%;
+  border: 2px solid var(--text-muted);
+  border-radius: 10px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.8rem;
+  text-transform: none;
+  background: white;
+  color: var(--text-primary);
+}
+
+.container.light-text {
+  --text-primary: #f5f5f5;
+  --text-muted: #cfcfcf;
+}
+
+.container.light-text .btn {
+  background: transparent;
+  border-color: var(--text-primary);
+  box-shadow: 0 6px var(--text-primary);
+}
+
+.container.light-text .topBarLink:hover {
+  color: #1a1a1a;
 }

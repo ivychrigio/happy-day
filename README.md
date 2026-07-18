@@ -1,75 +1,32 @@
-# React + TypeScript + Vite
+# Happy Day 🎂
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Progetto personale dedicato alla creazione di biglietti d'auguri digitali interattivi.
 
-Currently, two official plugins are available:
+## Stack Tecnologico
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Framework**: React + TypeScript + Vite[cite: 16]
+- **3D**: @react-three/fiber & @react-three/drei
+- **Stili**: CSS puro con variabili personalizzate centralizzate in `:root`[cite: 12, 15]
+- **Internazionalizzazione**: i18next
 
-## React Compiler
+## Struttura e Design
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Layout**: Struttura reattiva basata su Flexbox, ottimizzata per mobile e desktop.
+- **Componenti**: Utilizzo di un componente `Divider` riutilizzabile per mantenere la coerenza visiva nel footer[cite: 14].
+- **Gestione Stili**: Tutte le proprietà riutilizzabili (colori, font, padding) sono definite nel `:root` in `index.css` per una manutenzione rapida[cite: 15].
 
-## Expanding the ESLint configuration
+## Note Tecniche per lo Sviluppo
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Variabili CSS in React**: Quando si passano variabili CSS in linea nel `style` di un componente React, usare sempre il cast:
+  `style={{ "--bg-color": person.gradient } as React.CSSProperties}`[cite: 13]
+- **Footer**: Il layout del footer utilizza `handshakeContainer` per le linee divisorie e `Divider` per separare le sezioni[cite: 10, 14].
+- **Multilingua**: I testi sono gestiti tramite file di traduzione (`it.ts`, `en.ts`, ecc.) con chiavi dedicate per `copyright`, `craftedWith` e `devCredit`[cite: 4, 5, 6, 7].
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## TODO / Promemoria
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- [ ] Verificare che tutti i file di traduzione abbiano le nuove chiavi footer.
+- [ ] Mantenere pulito `index.css` centralizzando ogni nuova classe in `:root`.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
 
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+_Creato per rendere ogni giorno speciale._
