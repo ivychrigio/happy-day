@@ -2,7 +2,6 @@ export default {
   title: "Pide un deseo",
   description: "Haz clic y sopla",
   command: "¡Vamos!",
-  command_listening: "¡Sopla ahora!",
   result: "¡Feliz cumpleaños!",
   result_descr: "Tu deseo está en camino",
   no_birthday_title: "No hay cumpleaños hoy",

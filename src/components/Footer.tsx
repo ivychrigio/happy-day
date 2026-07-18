@@ -2,11 +2,11 @@ import { Cake, Smile, Award } from "lucide-react";
 import Divider from "./Divider";
 import { useTranslation } from "react-i18next";
 
-export default function Footer() {
+export default function Footer({ style }: { style?: React.CSSProperties }) {
   const { t } = useTranslation();
 
   return (
-    <footer>
+    <footer style={style}>
       <div className="footer">
         <div className="footerContainer">
           <Divider icon={Cake} />

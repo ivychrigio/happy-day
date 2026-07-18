@@ -2,7 +2,6 @@ export default {
   title: "Esprimi un desiderio",
   description: "Clicca e soffia",
   command: "Forza!",
-  command_listening: "Soffia ora!",
   result: "Buon compleanno!",
   result_descr: "Il tuo desiderio è in viaggio",
   no_birthday_title: "Nessun compleanno oggi",

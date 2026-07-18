@@ -2,7 +2,6 @@ export default {
   title: "Fais un vœu",
   description: "Clique et souffle",
   command: "Allez!",
-  command_listening: "Souffle maintenant !",
   result: "Joyeux anniversaire!",
   result_descr: "Ton vœu est en chemin",
   no_birthday_title: "Pas d'anniversaire aujourd'hui",

@@ -2,7 +2,6 @@ export default {
   title: "Make a wish",
   description: "Click and blow",
   command: "Come on!",
-  command_listening: "Blow now!",
   result: "Happy birthday!",
   result_descr: "Your wish is on its way",
   no_birthday_title: "No birthday today",
