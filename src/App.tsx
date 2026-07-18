@@ -39,7 +39,10 @@ function App() {
   }
 
   return (
-    <div className="container" style={{ "--bg-color": person.gradient }}>
+    <div
+      className="container"
+      style={{ "--bg-color": person.gradient } as React.CSSProperties}
+    >
       <section>
         <h1 className="name">{person.name}</h1>
         <h2 className="title">{t("title")}</h2>
