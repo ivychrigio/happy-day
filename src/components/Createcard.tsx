@@ -1,24 +1,36 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { buildCardUrl } from "./Cardlink";
-import { GRADIENT_PRESETS } from "../data/gradients";
+import { GRADIENT_PRESETS, GRADIENTS } from "../data/gradients";
 import { LANGUAGES } from "../data/languages";
+
+const DEFAULT_GRADIENT_ID = GRADIENT_PRESETS[0].id;
 
 export default function CreateCard() {
   const { t } = useTranslation();
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-  const [gradient, setGradient] = useState(GRADIENT_PRESETS[0].value);
+  const [gradientId, setGradientId] = useState(DEFAULT_GRADIENT_ID);
   const [lang, setLang] = useState("it");
   const [link, setLink] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+
+  const resetForm = () => {
+    setName("");
+    setMessage("");
+    setGradientId(DEFAULT_GRADIENT_ID);
+    setLang("it");
+    setLink(null);
+    setCopied(false);
+  };
 
   const handleGenerate = () => {
     if (!name.trim()) return;
     const url = buildCardUrl({
       name: name.trim(),
       message: message.trim(),
-      gradient,
+      gradient: GRADIENTS[gradientId],
+      gradientId,
       lang,
     });
     setLink(url);
@@ -29,7 +41,9 @@ export default function CreateCard() {
     if (!link) return;
     await navigator.clipboard.writeText(link);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setTimeout(() => {
+      resetForm();
+    }, 1500);
   };
 
   return (
@@ -75,10 +89,10 @@ export default function CreateCard() {
             <button
               key={preset.id}
               type="button"
-              className={gradient === preset.value ? "swatch active" : "swatch"}
+              className={gradientId === preset.id ? "swatch active" : "swatch"}
               style={{ background: preset.value }}
-              onClick={() => setGradient(preset.value)}
-              title={preset.label}
+              onClick={() => setGradientId(preset.id)}
+              title={t(`color_${preset.id}`)}
             />
           ))}
         </div>

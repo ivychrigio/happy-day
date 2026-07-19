@@ -181,6 +181,18 @@ export const GRADIENT_PRESETS: GradientPreset[] = [
     `,
     textColor: "light",
   },
+  {
+    id: "argento",
+    label: "Argento",
+    value: `
+      radial-gradient(at 0% 0%, rgba(192, 192, 192, 0.7) 0, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(220, 220, 220, 0.6) 0, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(160, 160, 160, 0.55) 0, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(255, 224, 178, 0.35) 0, transparent 50%),
+      linear-gradient(135deg, #f5f5f0 0%, #fffaf0 100%)
+    `,
+    textColor: "dark",
+  },
 ];
 
 export const GRADIENTS: Record<string, string> = Object.fromEntries(

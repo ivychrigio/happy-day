@@ -40,7 +40,7 @@ export function getTimeRemaining(data: CardData, hours = EXPIRY_HOURS) {
 
 export function buildCardUrl(data: Omit<CardData, "createdAt">): string {
   const encoded = encodeCardData(data);
-  const url = new URL(window.location.origin + window.location.pathname);
+  const url = new URL(window.location.origin + "/");
   url.searchParams.set("card", encoded);
   return url.toString();
 }

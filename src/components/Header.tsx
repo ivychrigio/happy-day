@@ -1,23 +1,30 @@
 import { useTranslation } from "react-i18next";
+import { Link, useLocation } from "react-router-dom";
 import Languages from "./Languages";
 import { Link as LinkIcon, X } from "lucide-react";
 
-export default function Header({ isCreateMode }: { isCreateMode: boolean }) {
+export default function Header({
+  showLanguages = true,
+}: {
+  showLanguages?: boolean;
+}) {
   const { t } = useTranslation();
+  const location = useLocation();
+  const isCreateMode = location.pathname === "/create";
 
   return (
     <header className="topBar">
-      <Languages />
+      {showLanguages ? <Languages /> : <div />}
       {isCreateMode ? (
-        <a href="." className="topBarLink">
+        <Link to="/" className="topBarLink">
           <X aria-hidden="true" className="topBarLinkIcon" />
           {t("back_home")}
-        </a>
+        </Link>
       ) : (
-        <a href="?create" className="topBarLink">
+        <Link to="/create" className="topBarLink">
           <LinkIcon aria-hidden="true" className="topBarLinkIcon" />
           {t("create_card_cta")}
-        </a>
+        </Link>
       )}
     </header>
   );

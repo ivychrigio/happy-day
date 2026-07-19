@@ -21,18 +21,16 @@ body {
 }
 
 body {
-  background-color: var(--bg-color);
   font-family: var(--font-main);
   text-transform: uppercase;
   min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
 }
 
 #root {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  min-height: 100dvh;
+  background-color: var(--bg-color);
 }
 
 canvas {
@@ -41,8 +39,6 @@ canvas {
 
 .container {
   flex: 1;
-  height: auto;
-  min-height: auto;
   width: 100%;
   background: var(--bg-color);
   background-size: 200% 200%;
@@ -51,8 +47,17 @@ canvas {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2rem;
-  overflow-y: visible;
+  padding-top: 2.5rem;
+  position: relative;
+}
+
+.page-content {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes GRADIENT-ANIMATION {
@@ -86,6 +91,7 @@ canvas {
 
 .container section p {
   font-size: 1rem;
+  color: var(--text-primary);
   opacity: 0.8;
   margin-bottom: 1.5rem;
 }
@@ -105,10 +111,12 @@ canvas {
 }
 
 .canvas-wrapper {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   width: 100%;
   max-width: 600px;
-  min-height: 200px;
+  height: clamp(240px, 32vmin, 340px);
+  margin-top: -0.5rem;
+  position: relative;
 }
 
 .name {
@@ -130,8 +138,7 @@ canvas {
 
 footer {
   width: 100%;
-  transition: background var(--transition-speed) ease;
-  background: var(--bg-color);
+  background: transparent;
 }
 
 .footer {
@@ -245,6 +252,8 @@ footer {
   padding: 0 1rem;
   margin-bottom: 1rem;
   flex: 0 0 auto;
+  position: relative;
+  z-index: 100;
 }
 
 .languages {
@@ -285,8 +294,8 @@ footer {
 }
 
 .topBarLink:hover {
-  background: var(--text-primary);
-  color: var(--bg-color);
+  background: var(--bg-color);
+  color: var(--text-primary);
 }
 
 .topBarLinkIcon {
@@ -296,6 +305,7 @@ footer {
 
 .create-card {
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 .field {
@@ -340,14 +350,28 @@ footer {
   width: 2.2rem;
   height: 2.2rem;
   border-radius: 50%;
-  border: 3px solid transparent;
+  border: 3px solid rgba(0, 0, 0, 0.12);
   cursor: pointer;
-  transition: transform var(--transition-speed) ease;
+  transition:
+    transform var(--transition-speed) ease,
+    border-color var(--transition-speed) ease;
 }
 
 .swatch.active {
   border-color: var(--text-primary);
   transform: scale(1.1);
+}
+
+.petals-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.petals-overlay canvas {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .link-result {
