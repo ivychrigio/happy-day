@@ -65,11 +65,4 @@ export const BIRTH_DAY_ITEMS = [
     bg: "#E53935",
     gradient: GRADIENTS.rosso,
   },
-  {
-    name: "TEST",
-    birthDate: "1996-07-19",
-    style: "rosso",
-    bg: "#E53935",
-    gradient: GRADIENTS.rosso,
-  },
 ];
